@@ -233,7 +233,7 @@ Diese erweiterungen kann man bei Visual Studio code an der Linken Seite finden..
 
 ### **Einstellungen anpassen**
 
-1. Damit nicht alle Daten beim Cloud Repository hinzugefügt werden kann man eine sogennante .gitignor datei erstellen.
+1. Damit nicht alle Daten beim Cloud Repository hinzugefügt werden kann man eine sogennante .gitignore datei erstellen.
 2. Hierzu ein Screenshot wie die Aussieht:
 
 ![Alt text](../screenshot/visual/gitignore.JPG)
