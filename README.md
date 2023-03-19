@@ -38,7 +38,7 @@ Folgende Befehle im Bash ausführen:
 
 1. Man muss den Key bei seinem Account unter den Einstellungen hinterlegen:
 
-![GitHub Konto SSH Keys](screenshot/Repository-erstellen.png)
+![GitHub Konto SSH Keys](screenshot/Repository-erstellen.jpg)
 
 Git Client
 ======
