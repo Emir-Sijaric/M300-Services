@@ -20,7 +20,7 @@ Wir arbeiten mit dem Terminal (Bash), sowie mit dem Visual Studio Code, aber zu 
 
 2. Danach kann oben recht zu seinen eigenen Repositorys gehen und anschliessend auf Repository erstellen klicken.
 
-screenshot/Repository-erstellen.jpg
+screenshot/Repository-erstellen.JPG
 
 ### SSH-Key erstellen
 
