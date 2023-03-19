@@ -38,7 +38,7 @@ Folgende Befehle im Bash ausführen:
 
 1. Man muss den Key bei seinem Account unter den Einstellungen hinterlegen:
 
-![GitHub Konto SSH Keys](screenshot/Repository-erstellen.jpg)
+![Alt text](../screenshot/Repository/RepositoryKey.JPG)
 
 Git Client
 ======
@@ -229,14 +229,14 @@ Visual Studio Code
   
 Diese erweiterungen kann man bei Visual Studio code an der Linken Seite finden... 
 
-![Erweiterungen bei Visual Studio Code](../Screenshot/Erweiterungen%20VSC.png)
+![Alt text](../screenshot/visual/Erweiterungen.JPG)
 
 ### **Einstellungen anpassen**
 
 1. Damit nicht alle Daten beim Cloud Repository hinzugefügt werden kann man eine sogennante .gitignor datei erstellen.
 2. Hierzu ein Screenshot wie die Aussieht:
 
-![Ausnahmen für Cloud-Repository](../Screenshot/gitignore.png)
+![Alt text](../screenshot/visual/gitignore.JPG)
 
 1. Ich würde euch meine gezeigten Einstellungen empfehlen.
 
@@ -244,7 +244,7 @@ Diese erweiterungen kann man bei Visual Studio code an der Linken Seite finden..
 
 1. Damit man die Ganzen Änderungen hochladen kann, muss man an der Linken Seite unter Source Control gehen. Eine Nachricht hinzufügen und dann commit sagen. Nach dem man die Bestätigung gegeben hat und die Daten hochgeladen wurden, muss man noch Synchronisieren.
 
-![Upload der Veränderungen](../Screenshot/Hochladen%20der%20Dateien.png)
+![Upload der Veränderungen](../screenshot/visual/Upload.JPG)
 
 Wichtige Befehle
 ======
@@ -262,7 +262,7 @@ Wichtige Befehle
 | `git status`  | Zeigt den Status der Arbeitskopie und des Repositories an        |
 | `git log`     | Zeigt die Versionsgeschichte mit allen Commits an                |
 
-[&uarr; nach oben](https://github.com/Silvan-Mattig/M300-Services/tree/main/10-Toolumgebung#m300---10-toolumgebung)
+[&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services/tree/main/M300Toolumgebung-10#m300---m300toolumgebung-10)
 
 
 
