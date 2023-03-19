@@ -20,5 +20,18 @@ Wir arbeiten mit dem Terminal (Bash), sowie mit dem Visual Studio Code, aber zu 
 
 2. Danach kann oben recht zu seinen eigenen Repositorys gehen und anschliessend auf Repository erstellen klicken.
 
-[Bild 1]: M300-Services/screenshot/Repository-erstellen.jpg
+### SSH-Key erstellen
+
+1. Zuerst muss man den Github Account Mail eingeben
+        ssh-keygen -t rsa -b 4096 -C "beispiel@beispiel.com"
+
+2. Dann erstellen wir danach einen SSH-Key
+        Generating public/private rsa key pair.
+
+3. Danach kommt die Namensabfrage für den Schlüssel
+        Enter a file in which to save the key (~/.ssh/id_rsa): 
+
+4. Danach muss man ein Kennwort setzen
+        Enter passphrase (empty for no passphrase): [Passwort]
+        Enter same passphrase again: [Passwort wiederholen]
 
