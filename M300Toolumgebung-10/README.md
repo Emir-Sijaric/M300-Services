@@ -90,7 +90,7 @@ mkdir MeinLokalesRepository
 git clone git@github.com:<Ihr Name>/my_M300.git
 ```
 
-3.Jetzt machen wir wieder das gleiche wie bei der letzten Aufgabe. Somit aktualisiert und prüft man den Status.
+3. Jetzt machen wir wieder das gleiche wie bei der letzten Aufgabe. Somit aktualisiert und prüft man den Status.
 
 ```
 git pull
