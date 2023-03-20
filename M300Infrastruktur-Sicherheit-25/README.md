@@ -155,4 +155,9 @@ Vagrant.configure("2") do |config|
     SHELL
   end
 ```
+
+Reflexion
+===
+Als wir mit dem Modul 300 angefangen haben, mussten wir zuerst ins Thema einlesen und selbst uns Sachen beibringen. Jedoch durch die Zusammenarbeit und das ganze absprechen miteinander, konnte es uns viel weiterhelfen mit den Aufgaben, sowie das Thema zu verstehen. Wir sassen mehrere Stunden an einem Problem, bis es zu einer Lösung kam. Mit diesen Arbeiten und investierten Stunden die wir intesiv dran waren, versteht man viel mehr und konnten unser Wissenstand erweitern. Wenn wir als Gruppe weiter so Arbeiten 
+
 [&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services/tree/main/M300Infrastruktur-Sicherheit-25#m300---25-infrastruktur-sicherheit)
