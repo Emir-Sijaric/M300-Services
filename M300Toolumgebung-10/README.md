@@ -265,7 +265,9 @@ Sobald die VM erstellt wurde kann man unter der URL http://localhost:8080 die ap
 http://localhost:8080
 ```
 
-Testfälle:| Testfall                                           | geschätztes Ergebniss                       | effektives Ergebnis |
+Testfälle:
+
+| Testfall                                           | geschätztes Ergebniss                       | effektives Ergebnis |
 | -------------------------------------------------- | ------------------------------------------- | ------------------- |
 | 1. Zugang via SSH                                  | Zugriff auf VM möglich                      | korrekt             |
 | 2. Zugriff auf die Website                         | Zeigt apache-default-page                   | korrekt             |
