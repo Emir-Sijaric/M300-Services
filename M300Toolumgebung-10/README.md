@@ -246,6 +246,25 @@ Diese erweiterungen kann man bei Visual Studio code an der Linken Seite finden..
 
 ![Upload der Veränderungen](../screenshot/visual/Upload.JPG)
 
+Automatischer Web-Server | Vagrant Folder
+======
+Navigieren sie im Folder "M300Toolumgebung-10/Vagrant/VMweb" dort sollten sie ein Vagrantfile finden.
+ 
+Mit diesem Vagranfile kann automatisch ein Web-Server erstellen ohne etwas gross zu machen. Mann muss nur diesen einen Befehl ausführen:
+```
+vagrant up
+```
+Wenn man diesen Befehl eingegeben hat, erstellt er eine Vm "Xenial64" und führt folgende Befehle aus:
+```
+config.vm.network "forwarded_port", guest:80, host:8080, auto_correct: true #Leitet den Port 80 der VM (Gastsystem) an den Port 8080 des Hostsystems weiter
+apt-get update
+sudo apt-get install -y apache2
+```
+Sobald die VM erstellt wurde kann man unter der URL http://localhost:8080 die apache Website öffnen
+```
+http://localhost:8080
+```
+
 Wichtige Befehle
 ======
 

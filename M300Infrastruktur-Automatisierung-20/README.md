@@ -159,4 +159,9 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "scripts/apache.sh"
   end
 ```
+Netzwerkplan
+===
+
+![Netzwerkplan](../screenshot/Netzplan/Netzplan.JPG)
+
 [&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services/tree/main/M300Infrastruktur-Automatisierung-20#m300---20-infrastruktur-automatisierung)
