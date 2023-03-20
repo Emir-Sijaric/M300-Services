@@ -158,6 +158,6 @@ Vagrant.configure("2") do |config|
 
 Reflexion
 ===
-Als wir mit dem Modul 300 angefangen haben, mussten wir zuerst ins Thema einlesen und selbst uns Sachen beibringen. Jedoch durch die Zusammenarbeit und das ganze absprechen miteinander, konnte es uns viel weiterhelfen mit den Aufgaben, sowie das Thema zu verstehen. Wir sassen mehrere Stunden an einem Problem, bis es zu einer Lösung kam. Mit diesen Arbeiten und investierten Stunden die wir intesiv dran waren, versteht man viel mehr und konnten unser Wissenstand erweitern. Wenn wir als Gruppe weiter so Arbeiten 
+Als wir mit dem Modul 300 angefangen haben, mussten wir zuerst ins Thema einlesen und selbst uns Sachen beibringen. Jedoch durch die Zusammenarbeit und das ganze absprechen miteinander, konnte es uns viel weiterhelfen mit den Aufgaben, sowie das Thema zu verstehen. Wir sassen mehrere Stunden an einem Problem, bis es zu einer Lösung kam. Mit diesen Arbeiten und investierten Stunden die wir intesiv dran waren, versteht man viel mehr und konnten unser Wissenstand erweitern. Wenn wir als Gruppe weiter so Arbeiten, bin ich mir sicher das wir am Ziel ankommen und die Aufgaben zu lösen und sie zu verstehen. Ich finde das wir als Team weiter voran kommen, anstatt dies einzeln zu bearbeiten und zu lösen.
 
 [&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services/tree/main/M300Infrastruktur-Sicherheit-25#m300---25-infrastruktur-sicherheit)
