@@ -60,11 +60,6 @@ Wenn man als System Administrator bei einem Microservices-System arbeitet, ist m
 Container sichern & beschränken
 ===
 
-
-## Sicherheitsprobleme ##
-
-
-
 ## Berechtigungs-Verteilung ##
 
 **Kernel Exploits** <br>
