@@ -34,7 +34,7 @@ Docker
 
 1. Laden Sie Docker Desktop für Windows herunter. 
 
-Dazu kann man direk auf diese Webseite gehen. ![Docker-Desktop](../screenshot/Container/wsl.JPG)
+Dazu kann man direk auf diese Webseite gehen. [Docker-Desktop](https://www.docker.com/products/docker-desktop/)
 
 2. Führen Sie den Installationsassistenten aus. 
 
