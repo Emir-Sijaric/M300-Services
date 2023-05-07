@@ -1,3 +1,6 @@
+M300 - 40 Kubernetes (K8s)
+===
+
 Grundbegriffe
 ===
 Service Discovery ist der Prozess, bei dem Clients Verbindungsinformationen zu passenden Instanzen eines Services erhalten. Es hilft dabei, die Interaktion und Koordination zwischen den verschiedenen Komponenten eines verteilten Systems oder einer Mikroservices-Architektur zu erleichtern.
@@ -15,11 +18,15 @@ Lastenverteilung
 
 Lastverteilung bezeichnet den Prozess der Verteilung von Arbeitslasten (z.B. Anfragen, Berechnungen oder Daten) auf mehrere parallel arbeitende Systeme oder Ressourcen.
 
-Apache-Server
-===
-
-Die .yaml-Datei ist eine Konfiguration für eine Kubernetes-Deployment und Service für eine Apache-Webanwendung. Das Deployment verwendet ein httpd:latest-Image auf Port 80 mit dem Label app: apache, während der Service den eingehenden Traffic auf Port 80 an das Deployment weiterleitet und einen Node-Port auf 30080 öffnet.
-
 Cluster
 ===
-Diese YAML-Datei definiert eine Kubernetes-Deploymentkonfiguration mit einem "master"- und zwei "worker"-Pods, die die nginx-Image verwenden. Jeder Pod hört auf Port 80 und hat spezifische CPU- und RAM-Ressourcenlimits. Es gibt auch zwei Services, "master-service" und "worker-service", die ClusterIP-Typ sind und auf Port 80 hören. Der "master-service" ist mit dem "master"-Pod und der "worker-service" ist mit den "worker"-Pods verbunden.
+
+Ein Cluster ist eine Gruppe von verbundenen oder zusammengeschlossenen Computersystemen, die gemeinsam als ein System oder eine Einheit arbeiten. Die einzelnen Systeme in einem Cluster werden auch als Knoten bezeichnet. Ein Cluster wird verwendet, um die Leistung und Verfügbarkeit von Anwendungen und Diensten zu erhöhen, indem Ressourcen wie Prozessoren, Speicher und Netzwerkbandbreite zwischen den Knoten aufgeteilt werden.
+
+Kubernetes
+===
+Kubernetes ist eine Open-Source-Plattform zur Automatisierung, Bereitstellung und Verwaltung von Containeranwendungen. Es dient als Orchestrierungswerkzeug, das die Skalierung, Überwachung und Lastverteilung von Containern auf mehreren Hosts oder Cloud-Plattformen erleichtert.
+
+Kubernetes Cluster
+===
+Ein Kubernetes-Cluster besteht aus einem Master-Node, der die Kontrolle und Verwaltung des Clusters übernimmt, und mehreren Worker-Nodes, die die eigentlichen Anwendungen ausführen. Durch die Verwendung von Kubernetes-Clustern können Unternehmen ihre Anwendungen effizienter bereitstellen, skalieren und verwalten und gleichzeitig die Verfügbarkeit und Skalierbarkeit ihrer Anwendungen verbessern.

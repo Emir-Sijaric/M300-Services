@@ -1,6 +1,7 @@
+M300 - 35 Container-Sicherheit
+=== 
 Protokollieren & Überwachen
 ===
-Dies ist ein Dockerfile, das auf dem google/cadvisor-Image basiert und cAdvisor in einem Container bereitstellt. Der Port 8080 wird freigegeben, um auf die cAdvisor-Web-Schnittstelle zugreifen zu können. Der Befehl CMD startet cAdvisor mit den Optionen --logtostderr und --port=8080.
 
 In der Informatik ist die Sicherheit immer an der ersten Stelle. Darum sollte man ebenfalls bei den Container auf die Sicherheit achten. Bei Komplexen Systemen zb. (Wenn mehrere Container mit eineinander verbunden sind.)  ist es natürlich noch wichtiger, dass die Systeme reibbungslos laufen. 
 
@@ -25,7 +26,6 @@ docker logs
 | awslogs         | Diese Methode schickt die Logs an Amazon CloudWatch Logs. CloudWatch Logs ist ein verwalteter Log-Service von Amazon Web Services. |
 
 Diese Liste ist nicht vollständig und es gibt noch weitere Logging-Methoden, die man über --log-driver auswählen kann. Man kann auch eigene Logging-Methoden implementieren, indem man ein Docker-Plugin erstellt.
-
 
 ### Wichtige Behfehle für Standard-Logging ###
 
@@ -59,7 +59,7 @@ Wenn man als System Administrator bei einem Microservices-System arbeitet, ist m
  
 Container sichern & beschränken
 ===
-Das Dockerfile nutzt ein schlankes Python-3.9 Basisimage, um den Container klein zu halten und die Angriffsfläche zu reduzieren. Die Einschränkung der Berechtigungen durch die Erstellung eines eigenen Benutzers und die Verwendung einer requirements.txt-Datei minimieren die Angriffsfläche zusätzlich und erhöhen die Sicherheit der Anwendung
+
 
 ## Sicherheitsprobleme ##
 
@@ -105,3 +105,54 @@ Natürlich können die konkreten Schritte zur Absicherung von Containern je nach
 Weitere Massnahmen:
 
     Beim Einsatz sicherheitskritischer Container:
+
+Weitere Sicherheitstipps
+===
+
+Container-Deployments bieten viele Vorteile, jedoch ist es auch wichtig, Sicherheitsmaßnahmen zu ergreifen, um Angriffe zu verhindern. In diesem Text werden verschiedene praktische Tipps zur Absicherung von Container-Deployments vorgestellt, die dazu beitragen können, Container-Umgebungen sicherer zu gestalten.
+
+**Setzen von Usern** <br>
+Es ist wichtig, das Verwenden von root-Accounts in Container-Deployments zu vermeiden. Daher sollten Sie immer einen Benutzer mit geringeren Rechten in den Dockerfiles erstellen und mit der USER-Anweisung auf diesen Benutzer wechseln. Dies kann mithilfe folgenden Beispiels in einem Dockerfile umgesetzt werden:
+'''
+RUN groupadd -r user_grp && useradd -r -g user_grp user
+USER user
+'''
+
+**Beschränkung des Netzwerkzugriffs** <br>
+Um das Risiko von Angriffen zu minimieren, sollten Sie sicherstellen, dass nur die Ports geöffnet werden, die tatsächlich benötigt werden. Diese Ports sollten auch nur für die anderen Container erreichbar sein, die sie brauchen.
+
+**Entfernen von setuid/setgid-Binaries** <br>
+Die Verwendung von setuid- oder setgid-Binaries kann zu einer unerlaubten Rechteausweitung führen. Daher sollten Sie diese Binaries deaktivieren oder entfernen.
+
+**Begrenzung des Speichers** <br>
+Eine Begrenzung des verfügbaren Speichers kann dazu beitragen, DoS-Angriffe und Anwendungen mit Speicherlecks zu verhindern, die nach und nach den Speicher des Hosts aufbrauchen
+
+**Begrenzung des CPU-Einsatzes** <br>
+Wenn ein Angreifer einen Container oder eine Gruppe von Containern dazu bringt, die CPU des Hosts vollständig auszulasten, kann dies zu einem DoS-Angriff führen. In Docker wird die CPU-Zuteilung über eine relative Gewichtung ermittelt.
+
+[&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services)
+
+Kontinuierliche Integration
+===
+Kontinuierliche Integration (CI) ist ein Prozess in der Software-Entwicklung, bei dem Komponenten einer Anwendung fortlaufend zusammengefügt werden. Das Ziel von CI besteht darin, die Qualität der Software zu verbessern. Der Prozess beinhaltet typischerweise das Übersetzen und Verknüpfen von Anwendungsteilen sowie die Durchführung von automatisierten Tests und die Erstellung von Software-Metriken zur Messung der Softwarequalität. Der gesamte Vorgang wird automatisch durch das Einchecken in die Versionsverwaltung ausgelöst.
+
+Die folgenden Grundsätze sind entscheidend für eine erfolgreiche Umsetzung von CI:
+1. Gemeinsame Codebasis
+2. Automatisierte Übersetzung
+3. Kontinuierliche Test-Entwicklung
+4. Häufige Integration
+5. Integration in den Hauptbranch
+6. Kurze Testzyklen
+7. Gespiegelte Produktionsumgebung
+8. Einfacher Zugriff
+9. Automatisiertes Reporting
+
+**Unittest** <br>
+Ein Modultest, auch bekannt als Komponententest oder Unittest, wird in der Softwareentwicklung angewendet, um die funktionalen Einzelteile (Module) von Computerprogrammen zu testen und ihre korrekte Funktionalität zu überprüfen.
+
+![Architecktur Docker](../screenshot/Container-Sicherheit/unittest.JPG)
+
+**Jenkins & Blue Ocean** <br>
+Travis CI ist ein Cloud-basiertes CI-System, das sich durch eine gute Integration mit GitHub auszeichnet.
+
+Jenkins ist ein beliebter Open-Source-CI-Server. Die kontinuierliche Lieferung sollte mit Jenkins nicht schwierig sein. Blue Ocean ist ein Plugin für Jenkins, das die Benutzeroberfläche verbessert und Jenkins für die Bedürfnisse von normalen Entwicklern vereinfacht. Um Jenkins und Blue Ocean nutzen zu können, wird eine Applikation bzw. ein Service benötigt, die in einem Git-Repository gespeichert ist und im Repository selbst die Datei Jenkinsfile enthält.

@@ -1,62 +1,283 @@
-Apache Server
+M300 - 30 Container
+===
+Container
 ===
 
-Beim ausführen dieses Dockerfile wird ein Container erstellt, der einen Apache-Webserver und eine HTML-Seite bereitstellt. Der Benutzer kann auf diese Anwendung über einen Webbrowser zugreifen und die HTML-Seite mit der Nachricht "Das ist ein Test" anzeigen lassen.
+Ein Container ist ein Konzept der Informatik, das hilfreich ist, um Anwendungen in einer Umgebung auszuführen, die isoliert und unabhängig von anderen Anwendungen und dem Betriebssystem des Computers ist.
 
-### **Dockerfile**
-In diesem Dockerfile wird das neueste Ubuntu-Basisimage als Grundlage verwendet, anschließend werden der Apache-Webserver und das curl-Programm installiert, die Konfigurationsdatei des Apache-Servers aktualisiert, die index.html-Datei in das Verzeichnis /var/www/html kopiert und der Container auf Port 8081 freigegeben. Abschließend wird der Befehl zum Starten des Apache-Servers definiert.
+Ein Vorteil von Containern ist, dass sie portabel sind und auf verschiedenen Betriebssystemen und Servern ausgeführt werden können, solange sie die Container-Software unterstützen. Durch die Verwendung von Containern können Anwendungen schneller bereitgestellt und skaliert werden, da sie unabhängig von der zugrunde liegenden Infrastruktur sind und somit schneller und einfacher bereitgestellt werden können.
 
-### **apache.conf**
-Die apache.conf-Datei ist eine Konfigurationsdatei für den Apache-Webserver, die die grundlegenden Einstellungen für den Webserver definiert. Hier wird der Servername auf "localhost" und das Dokumentenverzeichnis auf "/var/www/html" gesetzt. Darüber hinaus werden die Berechtigungen für das Verzeichnis definiert, damit der Apache-Server auf die Dateien im Verzeichnis zugreifen und sie bereitstellen kann.
-
-### **index.html**
-Die index.html-Datei ist eine statische HTML-Seite, die im Apache-Webserver-Verzeichnis /var/www/html platziert wird. Sie enthält eine einfache HTML-Struktur mit einem Titel "M300-LB3" und einem Absatztext "Das ist ein Test". Wenn der Apache-Webserver gestartet ist, kann diese Seite im Webbrowser über die Adresse "localhost:8081" aufgerufen werden.
-
-Apache HTTP to HTTPS
+Docker
 ===
 
-Dieser Dockerfile erstellt ein Docker-Image, das den Apache-Webserver mit aktiviertem SSL-Modul und Basis-Authentifizierung verwendet. Der Apache-Webserver wird im Vordergrund gestartet und die Ports 80 und 443 werden freigegeben.
+## Wichtige Befehle für Docker ##
 
-### **Schritte**
+| Befehl | Beschreibung |
+| --- | --- |
+| `docker build` | Baut ein Docker-Image aus einem Dockerfile |
+| `docker run` | Startet einen Docker-Container aus einem Docker-Image |
+| `docker stop` | Stoppt einen laufenden Docker-Container |
+| `docker rm` | Löscht einen Docker-Container |
+| `docker rmi` | Löscht ein Docker-Image |
+| `docker ps` | Zeigt eine Liste der laufenden Docker-Container an |
+| `docker images` | Zeigt eine Liste der verfügbaren Docker-Images an |
+| `docker exec` | Führt einen Befehl in einem laufenden Docker-Container aus |
+| `docker-compose up` | Startet Docker-Container mit Docker Compose |
+| `docker-compose down` | Stoppt Docker-Container mit Docker Compose und löscht sie |
+| `docker save` | Speichert ein Docker-Image als Tar-Datei |
+| `docker load` | Lädt ein Docker-Image aus einer Tar-Datei |
+| `docker login` | Meldet sich bei Docker Hub oder einer anderen Docker-Registry an |
+| `docker push` | Lädt ein Docker-Image auf Docker Hub oder eine andere Docker-Registry hoch |
+| `docker pull` | Lädt ein Docker-Image von Docker Hub oder einer anderen Docker-Registry herunter |
 
-1. Verwende das neueste offizielle Ubuntu-Image als Basis.
-2. Setze den Maintainer des Images auf Apache.
-3. Installiere den Apache-Webserver, SSL-Zertifikate und apache2-utils.
-4. Aktiviere notwendige Apache-Module (ssl, rewrite, headers) und das SSL-Standard-Site.
-5. Erstelle eine Umleitungsregel von Port 80 auf 443 in einer .conf-Datei.
-6. Füge die Authentifizierungsanweisungen zur SSL-Konfigurationsdatei hinzu.
-7. Setze die Umgebungsvariablen für Apache.
-8. Erstelle notwendige Verzeichnisse für Apache.
-9. Erstelle eine .htpasswd-Datei mit Basis-Authentifizierung.
-10. Exponiere Ports 80 und 443.
-11. Starte den Apache-Webserver im Vordergrund.
+# Installation Docker Desktop und Aktivierung von WSL2 #
 
-### **Verwendung**
-Das erstellte Docker-Image kann verwendet werden, um einen Apache-Webserver mit SSL-Unterstützung und Basis-Authentifizierung in einem Docker-Container bereitzustellen. Die Ports 80 und 443 müssen freigegeben werden, damit der Container von außen erreichbar ist.
+1. Laden Sie Docker Desktop für Windows herunter. 
 
-Dockerfile MySQL
+Dazu kann man direk auf diese Webseite gehen. ![Docker-Desktop](../screenshot/Container/wsl.JPG)
+
+2. Führen Sie den Installationsassistenten aus. 
+
+Öffnen Sie die heruntergeladene Datei "DockerDesktopInstaller.exe" und folgen Sie den Anweisungen des Installationsassistenten.
+
+3. Konfigurieren Sie Docker Desktop. 
+
+Nach Abschluss der Installation startet Docker Desktop automatisch. Möglicherweise müssen Sie jedoch den Computer neu starten, um Docker Desktop ordnungsgemäß zu starten. In den Einstellungen sollten man die Option "Use the WSL 2 based engine" auswählen. Wenn Sie dies tun, wird Docker Desktop WSL2 als Engine verwenden.
+
+4. Aktivieren Sie WSL2.
+
+Öffnen Sie ein PowerShell-Fenster als Administrator und führen Sie den folgenden Befehl aus, um WSL2 als Standardversion von WSL zu aktivieren:
+
+```
+wsl --set-default-version 2
+```
+
+Wenn man den Befehl ausgeführt hat, sollte man die folgende Meldung bekommen:
+![WSL2 aktivieren](../screenshot/Container/wsl.JPG)
+
+1. Installieren Sie eine Linux-Distribution.
+
+Da Docker Desktop WSL2 als Engine verwendet, benötigen Sie eine Linux-Distribution, die auf Ihrem Computer ausgeführt werden kann. Ich empfehle Ubuntu 22.04.2 LTS:
+
+![Ubuntu](../screenshot/Container/ubuntu.JPG)
+
+
+1. Überprüfen Sie die Installation.
+
+Öffnen Sie ein PowerShell-Fenster und führen Sie den folgenden Befehl aus, um zu überprüfen, ob Docker Desktop ordnungsgemäß installiert und konfiguriert ist:
+```
+docker run hello-world
+```
+Wenn alles funktioniert hat, sollte es folgendermassen aussehen:
+![Test Docker](../screenshot/Container/dockertest.JPG)
+
+Somit hat man Docker Desktop erfolgreich auf Windows installiert und WSL2 aktiviert.
+
+Docker Architecktur
 ===
 
-Dieser Dockerfile erstellt ein Image für einen MySQL-Server mit vordefinierten Benutzer- und Datenbankinformationen.
+![Architecktur Docker](../screenshot/Container/dockera.JPG)
 
-### **Details**
-Der Dockerfile basiert auf dem offiziellen MySQL-Image, das über Docker Hub bereitgestellt wird. Es wird eine Datenbank namens mydatabase erstellt und ein Benutzer mit den Zugangsdaten user:123456 angelegt. Der MySQL-Server wird auf Port 3306 freigegeben und automatisch gestartet, wenn der Docker-Container gestartet wird.
+## Docker Deamon ## 
 
-Image Bereitstellung
+* Erstellen, Ausführen und Überwachen der Container
+
+* Bauen und Speichern von Images
+
+## Docker Client ##
+
+* Docker wird über die Kommandozeile (CLI) mittels des Docker Clients bedient
+
+* Kommuniziert per HTTP REST mit dem Docker Daemon
+
+## Images ##
+
+* Images sind gebuildete Umgebungen welche als Container gestartet werden können
+
+* Images sind nicht veränderbar, sondern können nur neu gebuildet werden.
+
+## Container ## 
+
+* Container sind die ausgeführten Images.
+
+* Ein Image kann beliebig oft als Container ausgeführt werden.
+  
+
+## Docker Registry ## 
+
+* In Docker Registries werden Images abgelegt und verteilt.
+
+Dockerfile
 ===
 
-Dieses Dockerfile erstellt ein Image für einen Apache Webserver auf Basis des offiziellen Ubuntu 20.04 Images. Der Apache wird installiert, eine Beispiel-Webseite erstellt und der Port 80 wird für eingehende Verbindungen freigegeben. Die Zeitzone wird auf Europa/Berlin gesetzt.
+Ein Dockerfile ist ein Textdokument, das eine Abfolge von Anweisungen enthält, mit denen ein Docker-Image erstellt werden kann. Um ein Dockerfile zu erstellen, kann man zuerst ein neues Verzeichnis anlegen und darin eine Datei mit dem Namen "Dockerfile" erstellen.
 
+Anschliessend kann das Image wie folgt gebuildet werden:
+```
+    $ docker build -t mysql .
+```
+Starten:
+```
+    $ docker run --rm -d --name mysql mysql
+```
+Funktionsfähigkeit überprüfen:
+```
+    $ docker exec -it mysql bash
+```
+Überprüfung im Container:
+```
+    $ ps -ef
+    $ netstat -tulpen
+```
 
-Das erstellte Image des Apache-Webservers kann sowohl in einem privaten Unternehmen als auch auf Docker-Hub hochgeladen werden, um es später auf anderen Systemen oder in der Cloud zu verwenden. Durch das Hochladen in ein privates Unternehmen können Sie das Image innerhalb Ihres Netzwerks oder auf Ihren eigenen Servern speichern und verteilen, während das Hochladen auf Docker-Hub das Image der breiten Öffentlichkeit zugänglich macht.
+Netzwerk-Anbindung
+===
+
+Das wichtigste bei den Netzwerk Anbindungen ist, dass man weiss wie man Aussenstehenden Personen zugriff gebenkann. Das ganze funktioniert mit Ports. Dafür braucht man folgenden Behfel: -p oder -P.
+
+Um eine Verbindung zu einem Docker-Container herzustellen, der eine Anwendung ausführt, die auf einen bestimmten Port hört, muss der Port an den Host oder das Netzwerk weitergeleitet werden. Dazu kann man im Dockerfile die Ports, die die Anwendung nutzt, über die Anweisung "EXPOSE" eintragen. Dies ermöglicht es, dass andere Container oder Anwendungen über das Netzwerk auf den Container zugreifen und mit der Anwendung kommunizieren können.
 
 Volumes
 ===
 
-Volumes in Docker ermöglichen es, Daten zwischen Containern auszutauschen und persistent zu speichern. Sie bieten Datenspeicherung, Persistenz und Flexibilität, um Daten in einem Container-Cluster zu teilen und zu skalieren.
+Bisher gingen alle Änderungen im Dateisystem verloren, wenn der Docker-Container gelöscht wurde. Um Daten auch über das Löschen des Containers hinaus zu erhalten, bietet Docker verschiedene Optionen:
 
-### **MySQL**
-Dieses Dockerfile erstellt ein MySQL-Image mit spezifischen Konfigurationen. Es setzt Umgebungsvariablen, erstellt ein Volume für MySQL-Daten und öffnet den Port 3306.
+* Daten auf dem Host ablegen: Man kann die Daten auf dem Hostsystem speichern, auf dem Docker läuft. Dadurch bleiben die Daten auch erhalten, wenn der Container gelöscht wird.
 
-### **Test**
-Dieses Dockerfile erstellt ein Image auf Basis des offiziellen Busybox-Images. Es erstellt ein Volume mit dem Namen test-volume und startet die Busybox-Shell als Standardkommando.
+* Daten zwischen Containern teilen: Man kann Daten zwischen verschiedenen Containern teilen. Dadurch können mehrere Container auf dieselben Daten zugreifen und die Daten bleiben erhalten, auch wenn einer der Container gelöscht wird.
+
+* Eigene Volumes erstellen: Man kann eigene Volumes erstellen, um Daten zu speichern. Diese Volumes sind unabhängig vom Container und können auch von anderen Containern genutzt werden. Dadurch bleiben die Daten erhalten, auch wenn der Container gelöscht wird.
+
+Diese Optionen erlauben es, Daten auch über das Löschen eines Containers hinaus zu behalten und erleichtern die Verwaltung von Daten in Docker-Containern.
+
+## Volume - Verzeichnis ##
+
+Ein Volume ist ein spezielles Verzeichnis auf dem Hostsystem, in dem ein oder mehrere Docker-Container ihre Daten speichern können. Volumes bieten verschiedene nützliche Funktionen für die Verwaltung von persistenter oder gemeinsam genutzter Daten.
+
+## Wie erstellt man ein neues Volume /data Verzeichnis? ##
+
+Man muss den Folgenden Befehl einggeben, dass ein neues Docker Volume angelegt wird.
+
+```
+docker volume create data
+```
+
+Mit dem Folgenden Befehl kann man Überprüfen, ob der Befehl funktioniert hat. Somit werden alle verfügbaren Docker-Volumes aufgelistet.
+```
+docker volume ls
+```
+
+Damit man das Volume verwenden kann, muss man die folgenden Zeilen im Docker-Compose hinzufügen. Smoit wird "my-data" durch den gewünschten Namen des Volumes ersetzt.
+```
+volumes:
+  my-data:
+```
+
+## Datencontainer ##
+
+Wie starten man einen Container? Und wie kommen andere Personen darauf?
+
+Um den Container zu starten, muss man den folgenden Befehl eingeben:
+```
+docker run
+```
+Um auf ein Container zugreifen zukönnen, muss man folgenden Behfel eingeben:
+```
+--volumes-from
+```
+
+## Named Volumes ##
+
+Docker Volume ist seit Version 1.9 ein wichtiger Befehl, zur Verwaltung von Volumes auf einem Docker Host. Mit dem Befehl kann man ganz viele Sachen verwalten. Alle diese hier aufzuzählen macht aber keinen Sinn.
+
+
+Image-Bereitstellung
+===
+
+Es existieren zahlreiche Optionen, um Images bereitzustellen. Man kann sie durch das Erstellen von Dockerfiles erstellen, von einer Registry mit "docker pull" herunterladen oder mithilfe von "docker load" aus einer Archivdatei installieren.
+
+## Namensgebung für Images ##
+
+Images bestehen aus einem Namen und einer Version, wobei bei fehlender Angabe automatisch ":latest" hinzugefügt wird. Um Images bereitzustellen, sind präzise und beschreibende Namen und Tags von entscheidender Bedeutung. Die Namen und Tags werden entweder beim Bauen der Images oder durch den Befehl "docker tag" festgelegt.
+
+Bei den Tag-Namen muss man auf ein Paar Sachen achten:
+
+* Gross- und Kleinbuchstaben
+* Zahlen
+* Symbolen . und -
+* nicht länger als 128 Zeichen
+* erstes Zeichen kein . oder -
+
+Bei der Entwicklung eines Workflows ist es äußerst wichtig, sinnvolle Namen für Repositories und Tags zu verwenden. Docker hat nur wenige Einschränkungen bezüglich der Namensgebung und erlaubt jederzeit die Erstellung oder Löschung von Namen. Es obliegt also dem Entwicklungsteam, ein angemessenes Namensschema zu entwerfen und anzuwenden
+
+## Warnung vor dem latest-Tag ##
+
+Wenn bei einem "docker run" oder "docker pull" Befehl kein spezifischer Tag angegeben wird, verwendet Docker standardmäßig das Image, das mit "latest" gekennzeichnet ist. Wenn kein solches Image vorhanden ist, wird eine Fehlermeldung ausgegeben.
+
+# Docker Hub #
+
+Ein eigenes Images bereitzustellen ist am einfachsten, wenn man Dockers Hub verwendet.
+
+Das Hub ist soweit kostenlos, man kann aber auch für Repositories von privaten Personen zahlen.
+
+## Docker Hub einrichten ##
+
+1. Zuerst muss man achten, dass man einen Docker Hub Account hat.
+2. Image erstellen
+
+```
+docker tag mysql username/mysql
+```
+
+3. Um das Image hochzuladen, muss man den Befehl push mit verwenden.
+
+```
+docker push username/mysql
+```
+
+Dannach muss das Image noch beschrieben werden.
+
+## Weitere Befehle ##
+
+Nach einem Image kann man suchen mit folgendem Befehl:
+
+```
+docker search mysql
+```
+Um ein Image herunterzuladen, muss man den befehl pull verwenden:
+
+```
+docker pull ubuntu
+```
+
+# Export/Import von Container und Images #
+
+Damit man Images zwischen zwei Hots hin und her verschieben kann, braucht man die Befehle docker export und docker import. Damit man Verzeichnisse hin und her kopieren kann, verwenden wir docker save und docker load.
+```
+docker export
+```
+
+```
+docker import
+```
+
+
+Um seine eigenen Images sehen zu können, muss man folgenden Befehl ausführen:
+
+```
+/vagrant/mysql$ docker images
+```
+Wie kann ich mein Images wiederherstellen?
+
+```
+docker load
+```
+
+
+## TAR-Format ##
+
+Das TAR-Format dient der Archivierung und Komprimierung von Dateien und Verzeichnissen und hat seinen Ursprung in der Sicherung von Daten auf Magnetbändern. Heutzutage wird es oft verwendet, um Dateien in einer einzelnen, komprimierten Datei für die Übertragung oder Speicherung zu archivieren. Um die Dateigröße weiter zu reduzieren, können TAR-Dateien mit verschiedenen Komprimierungsverfahren wie Gzip, bzip2 oder XZ komprimiert werden. Im Bereich von Docker-Images werden TAR-Dateien häufig als Archivdateien verwendet.
+
+# Private Registry #
+
+Es gibt verschiedene Möglichkeiten, Images neben dem Docker Hub bereitzustellen, aber die manuelle Erstellung oder der Export/Import von Images sind suboptimale Optionen. Das Erstellen von Images aus Dockerfiles auf jedem Host ist langsam und kann zu unterschiedlichen Images führen, während das Exportieren und Importieren von Images knifflig und fehleranfällig sein kann. Stattdessen wird empfohlen, eine andere Registry zu verwenden, die selbst gehostet oder von einem anderen Unternehmen betrieben wird.
