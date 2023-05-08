@@ -125,7 +125,6 @@ Eine Begrenzung des verfügbaren Speichers kann dazu beitragen, DoS-Angriffe und
 **Begrenzung des CPU-Einsatzes** <br>
 Wenn ein Angreifer einen Container oder eine Gruppe von Containern dazu bringt, die CPU des Hosts vollständig auszulasten, kann dies zu einem DoS-Angriff führen. In Docker wird die CPU-Zuteilung über eine relative Gewichtung ermittelt.
 
-[&uarr; nach oben](https://github.com/Emir-Sijaric/M300-Services)
 
 Kontinuierliche Integration
 ===
