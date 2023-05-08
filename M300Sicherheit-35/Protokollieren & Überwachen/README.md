@@ -8,7 +8,15 @@ Dies ist ein Dockerfile, das auf dem google/cadvisor-Image basiert und cAdvisor 
 docker build -t mein-image .
 ```
 
+![dockerbuild](../../screenshot/protokollieren/dockerbuild.JPG)
+
 ### **Erstelle ein Container**
 ```
 docker run -p 8080:8080 mein-image
 ```
+
+![dockerrun](../../screenshot/protokollieren/dockerrun.JPG)
+
+Zum Schluss sollte man das hier sehen, wenn man den link: http://localhost:8080/containers/ öffnet.
+
+![cadvisor](../../screenshot/protokollieren/cadvisor.JPG)
