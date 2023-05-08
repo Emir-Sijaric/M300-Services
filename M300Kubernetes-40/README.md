@@ -30,3 +30,12 @@ Kubernetes ist eine Open-Source-Plattform zur Automatisierung, Bereitstellung un
 Kubernetes Cluster
 ===
 Ein Kubernetes-Cluster besteht aus einem Master-Node, der die Kontrolle und Verwaltung des Clusters übernimmt, und mehreren Worker-Nodes, die die eigentlichen Anwendungen ausführen. Durch die Verwendung von Kubernetes-Clustern können Unternehmen ihre Anwendungen effizienter bereitstellen, skalieren und verwalten und gleichzeitig die Verfügbarkeit und Skalierbarkeit ihrer Anwendungen verbessern.
+
+
+Reflexion
+===
+
+Als wir uns mit dem Thema Docker befasst haben, habe ich gemerkt, dass es besser ist zusammen zu arbeiten.Man kann sich gegenseitig unterstützen und so das Wissen erweitern.
+Durch mehrere Versuche und mehrfachigen Fehlschlägen konnten wir unsere Docker-Umgebung zum laufen bringen. Mir ist aufgefallen, dass man das Dokumentieren mit den Testfällen
+nicht unterschätzen sollte. Um zu bestätigen, dass die erstellten Container und Kubernetes funktionieren wird mithilfe Text und Screenshots im Github dokumentiert. So kann 
+bestätigt werden, dass die erstellten Lösungen reproduzierbar und nachvollziehbar sind.
