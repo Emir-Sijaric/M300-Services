@@ -28,3 +28,7 @@ docker run -d --name mein-container -p 8080:80 mein-image
 
 ### **Wichtig!**
 Die drei Dateien müssen sich im selben Verzeichnis befinden und der Benutzer muss im selben Verzeichnis sein, um die Befehle erfolgreich auszuführen.
+
+Dies kann man überprüfen, indem man unter: http://localhost:8080  geht und testet.
+
+![localhosttest](../../screenshot/Container/localhosttest.JPG)
