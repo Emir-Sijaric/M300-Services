@@ -25,7 +25,16 @@ Das erstellte Docker-Image kann verwendet werden, um einen Apache-Webserver mit 
 docker build -t <image-name> .
 ```
 
+![Buildapache-http](../../screenshot/apache-http/apacher.JPG)
+
 ### **Erstelle ein Container**
 ```
 docker run -p 80:80 -p 443:443 -d <image-name>
 ```
+
+![apacherrun](../../screenshot/apache-http/apacherrun.JPG)
+
+Wenn man jetzt die Seite aufruft: http://localhost, dann sollte man direkt zu https weitergeleitet werden und nach einem User Login abgefragt werden.
+
+![Anmeldung](../../screenshot/apache-http/anmeldung.JPG)
+![Apachepage](../../screenshot/apache-http/apachepage.JPG)
