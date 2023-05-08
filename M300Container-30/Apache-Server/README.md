@@ -17,10 +17,14 @@ Die index.html-Datei ist eine statische HTML-Seite, die im Apache-Webserver-Verz
 docker build -t mein-image .
 ```
 
+![Containerbuild](../../screenshot/Container/Containerbuild.JPG)
+
 ### **Erstelle ein Container**
 ```
 docker run -d --name mein-container -p 8080:80 mein-image
 ```
+
+![MyContainer](../../screenshot/Container/meincontainer.JPG)
 
 ### **Wichtig!**
 Die drei Dateien müssen sich im selben Verzeichnis befinden und der Benutzer muss im selben Verzeichnis sein, um die Befehle erfolgreich auszuführen.
