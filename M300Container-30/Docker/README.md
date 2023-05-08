@@ -19,3 +19,7 @@ docker run --name my-mysql-container -p 3306:3306 -d my-mysql-server
 ```
 
 ![Container](../../screenshot/Docker/container.JPG)
+
+Im Docker muss man dann dies überprüfen und es sollte so aussehen:
+
+![dockersql](../../screenshot/Docker/dockersql.JPG)
