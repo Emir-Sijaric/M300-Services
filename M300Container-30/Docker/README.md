@@ -11,7 +11,11 @@ Der Dockerfile basiert auf dem offiziellen MySQL-Image, das über Docker Hub ber
 docker build -t my-mysql-server .
 ```
 
+![mysql](../../screenshot/Docker/Dockerbuildmysql.JPG)
+
 ### **Erstelle ein Container**
 ```
 docker run --name my-mysql-container -p 3306:3306 -d my-mysql-server
 ```
+
+![Container](../../screenshot/Docker/container.JPG)
